@@ -1,4 +1,5 @@
 = Projet C++ Git avec Eigen
+:toc:
 
 == Instructions
 
