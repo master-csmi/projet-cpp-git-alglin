@@ -1,8 +1,9 @@
 \documentclass[12pt]{article}
 \usepackage{a4wide}
-\usepackage{amsmath}
+\usepackage{amsmath,amssymb}
 \usepackage{bm}
 \usepackage[colorlinks]{hyperref}
+\newcommand{\vect}[1]{\hat{\boldsymbol{#1}}}
 \title{C++ Project using Eigen3}
 \usepackage{minted}
 \begin{document}
@@ -129,6 +130,44 @@ Use
     \item cmake to compile
     \item ctest to test
 \end{itemize}
+
+
+\section{Hilbert Matrices}
+
+We give ourselves the $A$ matrix (Hilbert's matrix of order 10)
+\begin{minted}{cpp}
+>> A=hilb(10) = 1/(i+j+1);
+\end{minted}
+and the linear system $A\vect{x}=\vect{b}$, where \verb|b=A*ones(10,1)|.
+The exact solution $\vect{x}$ of this system is therefore the vector \verb|ones(10,1)|.
+
+\begin{itemize}
+    \item  Check that the matrix $A$ is symmetric and
+of positive definition.
+    \item Calculate the factorization $LU$ from $A$ using
+the command matlab {\tt lu} in the form {\tt [L,U,P]=lu(A)} and then
+the $\backslash$ order
+to solve the two triangular systems (be careful not to
+forget the permutation matrix).
+
+Up to which number after the decimal point the components of  
+the calculated solution are accurate? Explain briefly
+why we can't get a very accurate result 
+knowing that the eigen command to calculate the number of 
+conditioning of a matrix can be implemented as follows:
+
+\begin{minted}[]{cpp}
+JacobiSVD<MatrixXd> svd(A);
+double cond = svd.singularValues()(0) / svd.singularValues()(svd.singularValues().size()-1);
+\end{minted}
+
+\item To factorize $A$ could we have used the
+factorization of Cholesky? What are the advantages?
+So use - if possible - the matlab command {\tt chol} (which calculates a matrix
+$H$ such that $A=H^\top H$) to resolve the system $Avect{x}=\vect{b}$ and examine the accuracy of the result.
+
+\end{itemize}
+
 \section{Introduction to Eigen}
 
 Eigen is a general-purpose linear algebra C++ library. In Eigen, all matrices and vectors are objects of the Matrix template class, and the vector is a specialization of the matrix type, with either one row or one column. Tensor objects are not presented in official APIs but exist as submodules.
