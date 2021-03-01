@@ -21,5 +21,5 @@ TEST_CASE("eigen", "[basic]")
     a << 1, 2, 3,
         4, 5, 6,
         7, 8, 9;
-    REQUIRE(a(1,2) == 7);
+    REQUIRE(a(1,2) == 6);
 }
