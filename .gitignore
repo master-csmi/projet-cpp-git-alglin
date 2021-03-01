@@ -1,0 +1,13 @@
+project.fdb_latexmk
+project.fls
+project.log
+project.aux
+project.pyg
+project.synctex.gz
+projet.pdf
+project.pdf
+projet.synctex.gz
+_minted-project
+project.out
+project.toc
+build/
