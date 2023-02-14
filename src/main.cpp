@@ -7,15 +7,14 @@
 static constexpr auto USAGE =
     R"(intro.
     Usage:
-          intro [--opta=<kn> | --optb | --drifting | --speed=<kn>]
+          intro [--opta=<kn> | --optb ]
           intro (-h | --help)
           intro --version
     Options:
           -h --help     Show this screen.
           --version     Show version.
-          --opta=<kn>   Speed in knots [default: 10].
-          --optb        Moored (anchored) mine.
-          --drifting    Drifting mine.
+          --opta=<kn>   option a [default: 10].
+          --optb        option b.
 )";
 
 int main(int argc, const char **argv)
