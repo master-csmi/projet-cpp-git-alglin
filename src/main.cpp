@@ -5,19 +5,16 @@
 #include <docopt/docopt.h>
 
 static constexpr auto USAGE =
-    R"(Naval Fate.
+    R"(intro.
     Usage:
-          naval_fate ship new <name>...
-          naval_fate ship <name> move <x> <y> [--speed=<kn>]
-          naval_fate ship shoot <x> <y>
-          naval_fate mine (set|remove) <x> <y> [--moored | --drifting]
-          naval_fate (-h | --help)
-          naval_fate --version
- Options:
+          intro [--opta=<kn> | --optb | --drifting | --speed=<kn>]
+          intro (-h | --help)
+          intro --version
+    Options:
           -h --help     Show this screen.
           --version     Show version.
-          --speed=<kn>  Speed in knots [default: 10].
-          --moored      Moored (anchored) mine.
+          --opta=<kn>   Speed in knots [default: 10].
+          --optb        Moored (anchored) mine.
           --drifting    Drifting mine.
 )";
 
@@ -26,11 +23,17 @@ int main(int argc, const char **argv)
     std::map<std::string, docopt::value> args = docopt::docopt(USAGE,
                                                                {std::next(argv), std::next(argv, argc)},
                                                                true,              // show help if requested
-                                                               "Naval Fate 2.0"); // version string
+                                                               "Intro 1.0"); // version string
 
     for (auto const &arg : args)
     {
-        std::cout << arg.first << arg.second << std::endl;
+        std::cout << "[ " << arg.first << " ]: " << arg.second << std::endl;
+        if ( arg.second.isString())
+            spdlog::info("[{}]: {}", arg.first, arg.second.asString());
+        if (arg.second.isBool())
+            spdlog::info("[{}]: {}", arg.first, arg.second.asBool());
+        if (arg.second.isLong())
+            spdlog::info("[{}]: {}", arg.first, arg.second.asLong());
     }
 
     //Use the default logger (stdout, multi-threaded, colored)
