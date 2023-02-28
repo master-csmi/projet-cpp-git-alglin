@@ -19,7 +19,7 @@ catch_discover_tests(
   TEST_PREFIX
   "unittests."
   REPORTER
-  xml
+  console
   OUTPUT_DIR
   .
   OUTPUT_PREFIX
@@ -38,7 +38,7 @@ catch_discover_tests(
   TEST_PREFIX
   "unittests."
   REPORTER
-  xml
+  console
   OUTPUT_DIR
   .
   OUTPUT_PREFIX
@@ -55,7 +55,7 @@ catch_discover_tests(
   TEST_PREFIX
   "constexpr."
   REPORTER
-  xml
+  console
   OUTPUT_DIR
   .
   OUTPUT_PREFIX
@@ -74,7 +74,7 @@ catch_discover_tests(
   TEST_PREFIX
   "relaxed_constexpr."
   REPORTER
-  xml
+  console
   OUTPUT_DIR
   .
   OUTPUT_PREFIX

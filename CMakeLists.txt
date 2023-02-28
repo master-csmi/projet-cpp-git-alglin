@@ -46,7 +46,7 @@ option(ENABLE_TESTING "Enable Test Builds" ON)
 set(CONAN_EXTRA_REQUIRES "")
 set(CONAN_EXTRA_OPTIONS "")
 
-set(CONAN_EXTRA_REQUIRES ${CONAN_EXTRA_REQUIRES} eigen/3.3.9)
+set(CONAN_EXTRA_REQUIRES ${CONAN_EXTRA_REQUIRES} eigen/3.4.0)
 
 
 include(cmake/Conan.cmake)
