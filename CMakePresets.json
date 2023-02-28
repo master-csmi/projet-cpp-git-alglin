@@ -62,11 +62,6 @@
         {
             "name": "default",
             "configurePreset": "default",
-            "filter": {
-                "include": {
-                    "name": "feelpp"
-                }
-            },
             "output": {
                 "outputOnFailure": true
             },
