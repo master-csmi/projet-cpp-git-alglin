@@ -10,11 +10,13 @@
 # créer un environnement virtuel
 python -m venv .venv
 
+# activer l'environnement virtuel
+source .venv/bin/activate
+
 # installer les dépendances ici conan
 pip3 install -r requirements.txt
 
-# activer l'environnement virtuel
-source .venv/bin/activate
+
 ```
 
 == Critères  de Notations
