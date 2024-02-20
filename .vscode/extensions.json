@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "ms-vscode.cmake-tools",
+        "james-yu.latex-workshop",
+        "ms-vscode.cpptools",
+        "ms-vscode.cpptools-extension-pack"
+    ]
+}
