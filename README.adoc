@@ -7,8 +7,14 @@
 * installer Conan
 
 ```
+# créer un environnement virtuel
 python -m venv .venv
+
+# installer les dépendances ici conan
 pip3 install -r requirements.txt
+
+# activer l'environnement virtuel
+source .venv/bin/activate
 ```
 
 == Critères  de Notations
