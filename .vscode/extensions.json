@@ -3,6 +3,7 @@
         "ms-vscode.cmake-tools",
         "james-yu.latex-workshop",
         "ms-vscode.cpptools",
-        "ms-vscode.cpptools-extension-pack"
+        "ms-vscode.cpptools-extension-pack",
+        "twxs.cmake"
     ]
 }
