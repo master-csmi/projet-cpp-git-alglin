@@ -11,3 +11,4 @@ _minted-project
 project.out
 project.toc
 build/
+.venv/
