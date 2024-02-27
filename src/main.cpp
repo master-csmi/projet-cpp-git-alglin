@@ -5,7 +5,14 @@
 #include <fmt/ostream.h>
 #include <docopt/docopt.h>
 
-
+template <typename T>
+struct fmt::formatter<
+    T,
+    std::enable_if_t<
+        std::is_base_of_v<Eigen::DenseBase<T>, T>,
+        char>> : ostream_formatter
+{
+};
 
 void exo1( std::map<std::string, docopt::value> const& args)
 {
