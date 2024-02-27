@@ -6,11 +6,6 @@ env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
   BUILD_TYPE: RelWithDebInfo
 
-  # Conan cache environment variables
-  CONAN_SYSREQUIRES_MODE: enabled
-  CONAN_USER_HOME: "${{ github.workspace }}/conan-cache"
-  CONAN_USER_HOME_SHORT: "${{ github.workspace }}/conan-cache/short"
-
 jobs:
   build:
 
@@ -20,24 +15,13 @@ jobs:
         os: [ubuntu-22.04]
 
     steps:
-    - uses: actions/checkout@v2
-
-    - name: Cache
-      uses: actions/cache@v2
-      env:
-        cache-name: cache-conan-modules
-      with:
-        path: |
-          ${{ env.CONAN_USER_HOME }}
-          ~/.cache/pip
-        key: ${{ runner.os }}-${{ env.BUILD_TYPE }}-${{ hashFiles('CMakeLists.txt') }}-${{ hashFiles('cmake/Conan.cmake') }}
-
+    - uses: actions/checkout@v4
     - name: Install conan
       shell: bash
       run: |
-        python3 -m pip install --upgrade pip setuptools
-        python3 -m pip install conan==1.54.0 --upgrade
-        source ~/.profile
+        python3 -m venv .venv
+        source .venv/bin/activate
+        pip3 install -r requirements.txt
 
     - name: Configure CMake
       # Use a bash shell so we can use the same syntax for environment variable
@@ -49,7 +33,7 @@ jobs:
       #
       # We need to source the profile file to make sure conan is in PATH
       run: |
-        source ~/.profile
+        source .venv/bin/activate
         cmake --preset default
 
     - name: Build
